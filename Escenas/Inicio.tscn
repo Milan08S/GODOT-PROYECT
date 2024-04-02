@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://sequxy7q2n5g"]
+
+[ext_resource type="Script" path="res://Escenas/mundo.gd" id="1_t5bma"]
+[ext_resource type="Texture2D" uid="uid://do3do3id4j7wi" path="res://Imagenes/Fondo_Titulo.jpeg" id="2_cvwkl"]
+[ext_resource type="FontFile" uid="uid://le0muod36x0a" path="res://Fuentes/DungeonFont.ttf" id="3_aacb2"]
+
+[sub_resource type="GDScript" id="GDScript_mwkea"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="Inicio" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_t5bma")
+
+[node name="Fondo" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo"]
+position = Vector2(576, 324.5)
+scale = Vector2(1.125, 0.633789)
+texture = ExtResource("2_cvwkl")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 359.0
+offset_top = 26.0
+offset_right = 817.0
+offset_bottom = 87.0
+rotation = 0.00259016
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_aacb2")
+theme_override_font_sizes/font_size = 60
+text = "La Torre Del Extasis"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 466.0
+offset_top = 272.0
+offset_right = 710.0
+offset_bottom = 427.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_aacb2")
+theme_override_font_sizes/font_size = 40
+text = "Nueva Partida"
+script = SubResource("GDScript_mwkea")
+
+[node name="Button4" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_aacb2")
+theme_override_font_sizes/font_size = 40
+text = "Cargar Partida"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_aacb2")
+theme_override_font_sizes/font_size = 40
+text = "Opciones"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_aacb2")
+theme_override_font_sizes/font_size = 40
+text = "Salir"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
