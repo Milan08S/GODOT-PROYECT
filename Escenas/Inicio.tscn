@@ -1,22 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://sequxy7q2n5g"]
+[gd_scene load_steps=4 format=3 uid="uid://sequxy7q2n5g"]
 
 [ext_resource type="Script" path="res://Escenas/mundo.gd" id="1_t5bma"]
 [ext_resource type="Texture2D" uid="uid://do3do3id4j7wi" path="res://Imagenes/Fondo_Titulo.jpeg" id="2_cvwkl"]
 [ext_resource type="FontFile" uid="uid://le0muod36x0a" path="res://Fuentes/DungeonFont.ttf" id="3_aacb2"]
-
-[sub_resource type="GDScript" id="GDScript_mwkea"]
-script/source = "extends Button
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
 
 [node name="Inicio" type="Node2D"]
 process_mode = 3
@@ -46,30 +32,30 @@ offset_top = 272.0
 offset_right = 710.0
 offset_bottom = 427.0
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Nueva Partida" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_aacb2")
 theme_override_font_sizes/font_size = 40
 text = "Nueva Partida"
-script = SubResource("GDScript_mwkea")
 
-[node name="Button4" type="Button" parent="VBoxContainer"]
+[node name="Cargar Partida" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_aacb2")
 theme_override_font_sizes/font_size = 40
 text = "Cargar Partida"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="Opciones" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_aacb2")
 theme_override_font_sizes/font_size = 40
 text = "Opciones"
 
-[node name="Button3" type="Button" parent="VBoxContainer"]
+[node name="Salir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_aacb2")
 theme_override_font_sizes/font_size = 40
 text = "Salir"
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/Nueva Partida" to="." method="_on_button_pressed"]
+[connection signal="ready" from="VBoxContainer/Cargar Partida" to="." method="_on_cargar_partida_ready"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_button_3_pressed"]
